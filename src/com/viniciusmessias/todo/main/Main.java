@@ -14,7 +14,8 @@ public class Main {
         while (command != '0') {
             System.out.println("1 - Add task");
             System.out.println("2 - List tasks");
-            System.out.println("3 - Remove task");
+            System.out.println("3 - Complete task");
+            System.out.println("4 - Remove task");
             System.out.println("0 - Quit");
             System.out.print("Option: ");
             command = userInput.nextLine().charAt(0);
@@ -32,6 +33,12 @@ public class Main {
                     System.out.println();
                     break;
                 case '3':
+                    listing.showAllTasks();
+                    System.out.println("Please, choose the number related to a task you want to complete:");
+                    listing.completeTask(userInput.nextInt() - 1);
+                    userInput.nextLine();
+                    break;
+                case '4':
                     listing.showAllTasks();
                     System.out.println("Please, choose the number related to a task you want to remove:");
                     listing.removeTask(userInput.nextInt() - 1);
